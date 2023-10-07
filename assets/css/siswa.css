@@ -7,7 +7,8 @@
 .siswa-item {
     display: flex;
     align-items: center;
-    width: 1000px;
+    width: 90%;
+    max-width: 600px;
     height: 48px;
     background-color: #f0f0f0;
     border-radius: 20px;
@@ -31,6 +32,8 @@
 .siswa-container {
     display: flex;
     align-items: center;
+    width: 90%;
+    max-width: 600px;
     margin-bottom: 10px;
     background-color: #f0f0f0;
     border-radius: 20px;
@@ -65,3 +68,20 @@
     padding: 5px 10px;
     cursor: pointer;
 }
+
+.refresh-button {
+    background-color: #08294c;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+   }
+   
+   .refresh-button:hover {
+    background-color: #08294c;
+   }
+   
+   .refresh-button:active {
+    background-color: #08294c;
+   }
+   
