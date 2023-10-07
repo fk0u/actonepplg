@@ -9,7 +9,8 @@
     align-items: center;
     width: 90%;
     max-width: 600px;
-    height: 48px;
+    height: 60%;
+    max-height: 600px;
     background-color: #f0f0f0;
     border-radius: 20px;
     margin: 5px 0;
