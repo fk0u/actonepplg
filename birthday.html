@@ -65,7 +65,7 @@
         <li>Nabila: 5 Januari</li>
         <li>Naswa: 7 Desember</li>
         <li>Nizar: 1 Februari</li>
-        <li>Rafif: 28 Januari</li>
+        <li>Rafif: 22 Februari</li>
         <li>Rafik: 13 Agustus</li>
         <li>Reza: 24 Januari</li>
         <li>Ridho: 22 September</li>
@@ -116,7 +116,6 @@
             { name: "Widhi", month: 2, day: 16 }, // Maret dimulai dari indeks 0
         ];
 
-        // Fungsi untuk mencari ulang tahun terdekat
         function findClosestBirthday() {
             const currentDate = new Date();
             let closestBirthday = null;
@@ -124,9 +123,10 @@
 
             for (const birthday of birthdays) {
                 const birthdayDate = new Date(currentDate.getFullYear(), birthday.month, birthday.day);
-                const difference = Math.abs(birthdayDate - currentDate);
+                birthdayDate.setHours(0, 0, 0, 0); // Reset hours, minutes, seconds, and milliseconds
+                const difference = birthdayDate - currentDate;
 
-                if (difference < closestDifference) {
+                if (difference >= 0 && difference < closestDifference) {
                     closestDifference = difference;
                     closestBirthday = birthday;
                 }
@@ -135,14 +135,32 @@
             return closestBirthday;
         }
 
-        // Tampilkan ulang tahun terdekat di HTML
-        const closestBirthday = findClosestBirthday();
-        if (closestBirthday) {
-            const closestBirthdayElement = document.getElementById("closestBirthday");
-            const formattedDate = new Date(new Date().getFullYear(), closestBirthday.month, closestBirthday.day).toLocaleDateString(undefined, { month: 'long', day: 'numeric' });
-            closestBirthdayElement.textContent = `${closestBirthday.name}: ${formattedDate}`;
+        // Function to update the closest birthday element
+        function updateClosestBirthday() {
+            const closestBirthday = findClosestBirthday();
+            if (closestBirthday) {
+                const closestBirthdayElement = document.getElementById("closestBirthday");
+                const formattedDate = new Date(new Date().getFullYear(), closestBirthday.month, closestBirthday.day).toLocaleDateString(undefined, { month: 'long', day: 'numeric' });
+                closestBirthdayElement.textContent = `${closestBirthday.name}: ${formattedDate}`;
+            }
         }
-    </script>
+
+        // Update the closest birthday every second
+        setInterval(updateClosestBirthday, 1000);
+
+        // Initial update
+        updateClosestBirthday();
+
+        // Function to update Singapore time
+        function setSingaporeTime() {
+            const elements = document.querySelectorAll(".sg-time");
+            const singaporeTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Singapore" });
+            for (const element of elements) {
+                element.textContent = singaporeTime;
+            }
+        }
+        setInterval(setSingaporeTime, 1000);
+        </script>
 
             </div>
         </div>
