@@ -32,7 +32,7 @@
                 <div class="col-md-10 text-center"><img class="img-fluid w-100" src="assets/img/illustrations/404.svg"></div>
                 <div class="col text-center">
                     <h2 class="display-3 fw-bold mb-4">Page Not Found</h2>
-                    <p class="fs-4 text-muted">Please try again later.</p>
+                    <p class="fs-4 text-muted">We will redirecting you to pplg.xyz</p>
                 </div>
             </div>
         </div>
@@ -88,6 +88,16 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/startup-modern.js"></script>
+    <script>
+        function redirectAfter3Seconds() {
+            setTimeout(function () {
+                window.location.href = "https://pplg.xyz/";
+            }, 3000); // 3000 milidetik = 3 detik
+        }
+        
+        // Panggil fungsi saat halaman dimuat
+        window.onload = redirectAfter3Seconds;
+    </script>
 </body>
 
 </html>
