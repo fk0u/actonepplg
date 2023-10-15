@@ -18,27 +18,37 @@
 <style>
     /* Preloader styles */
     .preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #fff; /* Change this to your desired background color */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff; /* Change this to your desired background color */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        animation: blink 2s infinite; /* Adjust animation duration as needed */
     }
-  
+
     /* Style for the loader image */
     .preloader img {
-      width: 100px; /* Adjust the width as needed */
-      height: 100px; /* Adjust the height as needed */
+        width: 100px; /* Adjust the width as needed */
+        height: 100px; /* Adjust the height as needed */
     }
-  </style>  
+
+    @keyframes blink {
+        0%, 100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+</style>
 <body>
     <div class="preloader">
-        <img src="assets/img/loader.gif" alt="Loading...">
+        <img src="assets/img/3.png" alt="Loading...">
       </div>
     <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3 navbar-light" id="mainNav">
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>Actone.PPLG</span></a>
@@ -358,17 +368,12 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/startup-modern.js"></script>
-   <script>
-  // Show the preloader when the page starts loading
-  const preloader = document.querySelector(".preloader");
-  preloader.style.display = "flex"; // Display the preloader
-
-  // Set a timeout to hide the preloader after 3 seconds (3000 milliseconds)
-  setTimeout(function() {
-    preloader.style.display = "none"; // Hide the preloader
-  }, 6000);
-</script>
-
+    <script>
+        setTimeout(function() {
+            const preloader = document.querySelector(".preloader");
+            preloader.style.display = "none"; // Hide the preloader
+        }, 6000); // Adjust the duration as needed
+    </script>
 </body>
 
 </html>
