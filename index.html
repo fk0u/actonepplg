@@ -47,6 +47,26 @@
     }
 </style>
 <body>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
+        Watch Video
+      </button>  
+      <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="videoModalLabel">Watch Our Video</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Embed your video here, e.g., an iframe for YouTube or Vimeo -->
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/zM0TU-sjHk0?si=sMZeRUCPX6bL-B0m" frameborder="0" allowfullscreen autoplay></iframe>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>          
     <div class="preloader">
         <img src="assets/img/3.png" alt="Loading...">
       </div>
@@ -373,6 +393,19 @@
             const preloader = document.querySelector(".preloader");
             preloader.style.display = "none"; // Hide the preloader
         }, 6000); // Adjust the duration as needed
+
+        function openModalAfterDelay() {
+            setTimeout(function() {
+              var myModal = new bootstrap.Modal(document.getElementById('videoModal'), {
+                backdrop: 'static', // Menghilangkan kemampuan menutup modal dengan mengklik luar
+                keyboard: false // Menghilangkan kemampuan menutup modal dengan menekan tombol keyboard Esc
+              });
+              myModal.show();
+            }, 7000); // 7000 milidetik = 7 detik
+          }
+        
+          // Panggil fungsi ini setelah dokumen dimuat
+          window.addEventListener('load', openModalAfterDelay);
     </script>
 </body>
 
