@@ -1,3 +1,4 @@
+// Ganti dengan kunci API OpenAI Anda
 const apiKey = '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';
 
 function sendMessage() {
@@ -5,8 +6,9 @@ function sendMessage() {
     addMessage(userInput, 'user');
 
     fetchOpenAIResponse(userInput)
-        .then(response => {
-            addMessage(response.choices[0].text, 'bot');
+        .then(response => response.json())
+        .then(data => {
+            addMessage(data.choices[0].text, 'bot');
         })
         .catch(error => {
             console.error(error);
@@ -24,8 +26,7 @@ function fetchOpenAIResponse(input) {
             prompt: input,
             max_tokens: 150, // Jumlah token maksimum dalam respons
         }),
-    })
-    .then(response => response.json());
+    });
 }
 
 function addMessage(text, sender) {
