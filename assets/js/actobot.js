@@ -1,5 +1,5 @@
 // Ganti dengan kunci API OpenAI Anda
-const apiKey = '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';
+const apiKey = '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';
 
 function sendMessage() {
     const userInput = document.getElementById('user-input').value;
