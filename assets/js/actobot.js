@@ -8,6 +8,7 @@ function sendMessage() {
     fetchOpenAIResponse(userInput)
         .then(response => response.json())
         .then(data => {
+            console.log(data); // Tambahkan pernyataan ini untuk melihat respons API dalam konsol
             addMessage(data.choices[0].text, 'bot');
         })
         .catch(error => {
