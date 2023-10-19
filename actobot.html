@@ -24,6 +24,16 @@
     padding: 0 15px;
 }
 
+/* Menghilangkan latar belakang gelap */
+.modal-backdrop {
+    display: none !important;
+}
+
+/* Menjaga fokus modal */
+.modal {
+    z-index: 1050; /* Sesuaikan dengan kebutuhan */
+}
+
 /* Style untuk header */
 .navbar {
     background-color: #f8f9fa;
@@ -147,6 +157,19 @@ button {
                 </ul>
             </div><button data-bs-target="#navcol-1" data-bs-toggle="collapse" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         </div>
+        <div class="modal fade" id="videoModal" tabindex="1" aria-labelledby="videoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="videoModalLabel">Information</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <p>Ga Ada Dana Buat Hosting, Jadi Fitur ini Tidak Bisa Di Gunakan. </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
     </nav>
     <section class="py-5 mt-5">
         <div class="container py-5">
