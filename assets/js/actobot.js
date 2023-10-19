@@ -1,15 +1,12 @@
-// Ganti dengan kunci API OpenAI Anda
-const apiKey = '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';
+const apiKey = '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';
 
 function sendMessage() {
     const userInput = document.getElementById('user-input').value;
     addMessage(userInput, 'user');
 
     fetchOpenAIResponse(userInput)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data); // Tambahkan pernyataan ini untuk melihat respons API dalam konsol
-            addMessage(data.choices[0].text, 'bot');
+        .then(response => {
+            addMessage(response.choices[0].text, 'bot');
         })
         .catch(error => {
             console.error(error);
@@ -27,7 +24,8 @@ function fetchOpenAIResponse(input) {
             prompt: input,
             max_tokens: 150, // Jumlah token maksimum dalam respons
         }),
-    });
+    })
+    .then(response => response.json());
 }
 
 function addMessage(text, sender) {
@@ -38,3 +36,16 @@ function addMessage(text, sender) {
     chat.appendChild(message);
     document.getElementById('user-input').value = '';
 }
+
+function openModalAfterDelay() {
+    setTimeout(function () {
+        var myModal = new bootstrap.Modal(document.getElementById('videoModal'), {
+            backdrop: false, // Menghilangkan backdrop atau latar belakang gelap
+            keyboard: false // Menghilangkan kemampuan menutup modal dengan menekan tombol keyboard Esc
+        });
+        myModal.show();
+    }, 6000); // 6000 milidetik = 6 detik
+}
+
+// Panggil fungsi ini setelah dokumen dimuat
+window.addEventListener('load', openModalAfterDelay);
