@@ -142,23 +142,23 @@
                 ];
 
                 // Fungsi untuk mencari ulang tahun terdekat
-                function findClosestBirthday() {
-                    const currentDate = new Date();
-                    let closestBirthday = null;
-                    let closestDifference = Infinity;
+        function findClosestBirthday() {
+            const currentDate = new Date();
+            let closestBirthday = null;
+            let closestDifference = Infinity;
 
-                    for (const birthday of birthdays) {
-                        const birthdayDate = new Date(currentDate.getFullYear(), birthday.month, birthday.day);
-                        const difference = Math.abs(birthdayDate - currentDate);
+            for (const birthday of birthdays) {
+                const birthdayDate = new Date(currentDate.getFullYear(), birthday.month, birthday.day);
+                const difference = birthdayDate - currentDate;
 
-                        if (difference < closestDifference) {
-                            closestDifference = difference;
-                            closestBirthday = birthday;
-                        }
-                    }
-
-                    return closestBirthday;
+                if (difference >= 0 && difference < closestDifference) {
+                    closestDifference = difference;
+                    closestBirthday = birthday;
                 }
+            }
+
+            return closestBirthday;
+        }
 
                 // Tampilkan ulang tahun terdekat di HTML
                 const closestBirthday = findClosestBirthday();
@@ -172,7 +172,24 @@
                     // After the page has fully loaded, hide the preloader
                     const preloader = document.querySelector(".preloader");
                     preloader.style.display = "none";
-                });          
+                });  
+                
+                // Fungsi untuk mengupdate ulang tahun terdekat dan jam
+        function updateData() {
+            const closestBirthday = findClosestBirthday();
+            if (closestBirthday) {
+                const formattedDate = new Date(new Date().getFullYear(), closestBirthday.month, closestBirthday.day).toLocaleDateString(undefined, { month: 'long', day: 'numeric' });
+                document.getElementById("closestBirthday").textContent = `Ulang Tahun Terdekat: ${closestBirthday.name}, ${formattedDate}`;
+            }
+
+            updateClock();
+        }
+
+        // Mengeksekusi updateData() secara berkala setiap 1 detik (1000 milidetik)
+        setInterval(updateData, 1000);
+
+        // Panggil updateData() untuk pertama kali saat halaman dimuat
+        updateData();
             </script>
 
         </div>
