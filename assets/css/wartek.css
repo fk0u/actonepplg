@@ -90,3 +90,37 @@
     margin-right: 5%;
 }
    
+@media (max-width: 768px) {
+    .siswa-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 800px;
+        align-items: center;
+    }
+
+    .siswa-item {
+        width: 100%; /* Mengisi lebar penuh layar */
+        padding: 5px; /* Menambahkan padding */
+    }
+
+    .nomor, .nama, .tgl-lahirt, .order {
+        flex: 1; /* Mengisi lebar secara merata */
+        text-align: left; /* Mengatur teks ke tengah */
+    }
+
+    .siswa-container {
+        width: 100%; /* Mengisi lebar penuh layar */
+        padding: 5px; /* Menambahkan padding */
+    }
+
+    .tgl-lahir {
+        text-align: center; /* Mengatur teks ke tengah */
+        flex: auto;
+        margin-top: 0px; /* Menambahkan jarak atas */
+    }
+
+    .button {
+        margin: 5px auto; /* Menengahkan tombol */
+    }
+}
