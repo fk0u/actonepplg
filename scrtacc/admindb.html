@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard-container {
+            padding: 20px;
+            width: 70%;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            max-width: 600px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .logout-btn {
+            background-color: #f44336;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Daftar menu */
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .menu-item {
+            margin-bottom: 10px;
+        }
+
+        .menu-link {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-link:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h2>Welcome to Admin Dashboard</h2>
+    <p>Ini Halaman Dashboard Admin Actone</p>
+
+    <!-- Daftar Menu -->
+    <h3>Menu</h3>
+    <ul class="menu-list">
+        <li class="menu-item"><a href="/presence.html" class="menu-link">Absen Harian</a></li>
+        <li class="menu-item"><a href="/piket.html" class="menu-link">Laporan Piket Harian</a></li>
+        <li class="menu-item"><a href="https://jurnal.smkn7-smr.sch.id/login" class="menu-link">Jurnal</a></li>
+        <li class="menu-item"><a href="https://docs.google.com/spreadsheets/d/10qPMjF9QyEbdEXmOxOe05HE1cOy6XK5cT-gWj8jwAXw/edit?usp=sharing" class="menu-link">Data Kas Kelas, Iuran Makan/P5</a></li>
+        <li class="menu-item"><a href="https://docs.google.com/spreadsheets/d/15u2z8CAA6V-suoVsVuvktJw16rxSw9EO2rZeVfLaVWc/edit?resourcekey#gid=1262495382" class="menu-link">Laporan Absen Harian</a></li>
+        <li class="menu-item"><a href="https://docs.google.com/spreadsheets/d/165I9wYqU5Bks1-XkpDt4rEPFGSfxZW_Et04idqKh75E/edit?resourcekey#gid=459881336" class="menu-link">Laporan Piket Harian</a></li>
+        <li class="menu-item"><a href="https://pplg.xyz/" class="menu-link">Balik ke Halaman Utama</a></li>
+        <!-- Tambahkan menu sesuai kebutuhan -->
+    </ul>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+</div>
+
+<script>
+    function logout() {
+        // Mengarahkan pengguna kembali ke halaman login.html
+        window.location.href = '/login.html';
+    }
+</script>
+
+</body>
+</html>
