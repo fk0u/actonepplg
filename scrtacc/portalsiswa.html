@@ -15,7 +15,69 @@
     <link rel="stylesheet" href="/assets/css/Ultimate-Testimonial-Slider.css">
 </head>
 
+<style>
+    /* Preloader styles */
+    .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        /* Change this to your desired background color */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        animation: blink 2s infinite;
+        /* Adjust animation duration as needed */
+    }
+
+    /* Style for the loader image */
+    .preloader img {
+        width: 100px;
+        /* Adjust the width as needed */
+        height: 100px;
+        /* Adjust the height as needed */
+    }
+
+    @keyframes blink {
+
+        0%,
+        100% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+</style>
+
 <body>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
+        Watch Video
+    </button>
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="videoModalLabel">Our Spotify Playlist</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Embed your video here, e.g., an iframe for YouTube or Vimeo -->
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2EWDvKywZqa0hC1IzvjsEl?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="preloader">
+        <img src="/assets/img/3.png" alt="Loading...">
+    </div>
     <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3 navbar-light" id="mainNav">
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>Actone.PPLG</span></a>
             <div class="collapse navbar-collapse" id="navcol-1" style="margin-right: 0px;padding-right: 130px;">
@@ -264,6 +326,25 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/startup-modern.js"></script>
+    <script>
+        setTimeout(function () {
+            const preloader = document.querySelector(".preloader");
+            preloader.style.display = "none"; // Hide the preloader
+        }, 6000); // Adjust the duration as needed
+
+        function openModalAfterDelay() {
+            setTimeout(function () {
+                var myModal = new bootstrap.Modal(document.getElementById('videoModal'), {
+                    backdrop: 'static', // Menghilangkan kemampuan menutup modal dengan mengklik luar
+                    keyboard: false // Menghilangkan kemampuan menutup modal dengan menekan tombol keyboard Esc
+                });
+                myModal.show();
+            }, 7000); // 7000 milidetik = 7 detik
+        }
+
+        // Panggil fungsi ini setelah dokumen dimuat
+        window.addEventListener('load', openModalAfterDelay);
+    </script>
 </body>
 
 </html>
