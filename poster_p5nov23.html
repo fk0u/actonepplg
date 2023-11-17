@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>P5 - Actone.PPLG</title>
+    <link rel="icon" href="/assets/img/icon.png" type="image/png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Raleway.css">
+    <link rel="stylesheet" href="assets/css/Roboto%20Condensed.css">
+    <link rel="stylesheet" href="assets/css/Carousel_Image_Slider-mycarousel.css">
+    <link rel="stylesheet" href="assets/css/Carousel_Image_Slider.css">
+    <link rel="stylesheet" href="assets/css/Lista-Productos-Canito.css">
+    <link rel="stylesheet" href="assets/css/Ultimate-Testimonial-Slider.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.10/dist/tailwind.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+</head>
+<style>
+    #expanded-image {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 999;
+        flex-direction: column; /* Tambahkan ini */
+    }
+    
+
+    #expanded-image img {
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 10px;
+    }
+
+    #close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    /* Style for the loader image */
+    .preloader img {
+        width: 100px; /* Adjust the width as needed */
+        height: 100px; /* Adjust the height as needed */
+      }  
+</style>
+
+<body class="bg-gray-100">
+    <div class="preloader">
+        <img src="/assets/img/loader.gif" alt="Loading...">
+      </div>
+    <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3 navbar-light" id="mainNav">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>Actone.PPLG</span></a>
+            <div class="collapse navbar-collapse" id="navcol-1" style="margin-right: 0px;padding-right: 130px;">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="data-kelas.html">Class Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://discord.gg/pplg">Discord Server</a></li>
+                </ul>
+            </div><button data-bs-target="#navcol-1" data-bs-toggle="collapse" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        </div>
+    </nav>
+
+    <section class="py-5 mt-5">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-5 fw-bold mb-4">Karya Poster P5<br><span class="underline pb-2">November 2023</span></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Repeat this block 36 times -->
+                <!-- Start of loop -->
+                <!-- Poster -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster1.png" class="card-img-top img-fluid" alt="Poster 1">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster1.png', 'Aji Ramada Dharma')">Poster 1</h5>
+                            <p>Hasil Karya dari : Aji Ramada Dharma</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster2.png" class="card-img-top img-fluid" alt="Poster 2">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster2.png', 'Al-Ghani Desta Setyawan')">Poster 2</h5>
+                            <p>Hasil Karya dari : Al-Ghani Desta Setyawan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster3.png" class="card-img-top img-fluid" alt="Poster 3">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster3.png', 'Andhika Galih Isya Putra')">Poster 3</h5>
+                            <p>Hasil Karya dari : Andhika Galih Isya Putra</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster4.jpg" class="card-img-top img-fluid" alt="Poster 4">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster4.jpg', 'Asnia Amelia')">Poster 4</h5>
+                            <p>Hasil Karya dari : Asnia Amelia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster5.jpg" class="card-img-top img-fluid" alt="Poster 5">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster5.jpg', 'Aurelyo Daffa Zaqwan')">Poster 5</h5>
+                            <p>Hasil Karya dari : Aurelyo Daffa Zaqwan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster6.png" class="card-img-top img-fluid" alt="Poster 6">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster6.png', 'Chalel Ferguson Lonnie Christa')">Poster 6</h5>
+                            <p>Hasil Karya dari : Chalel Ferguson Lonnie Christa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster7.jpg" class="card-img-top img-fluid" alt="Poster 7">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster7.jpg', 'Diaz Daffa Aulia')">Poster 7</h5>
+                            <p>Hasil Karya dari : Diaz Daffa Aulia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster8.jpg" class="card-img-top img-fluid" alt="Poster 8">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster8.jpg', 'Diva Silvianna')">Poster 8</h5>
+                            <p>Hasil Karya dari : Diva Silvianna</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster9.jpg" class="card-img-top img-fluid" alt="Poster 9">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster9.jpg', 'Ghatan Abie Rieko Kumoro')">Poster 9</h5>
+                            <p>Hasil Karya dari : Ghatan Abie Rieko Kumoro</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster10.jpg" class="card-img-top img-fluid" alt="Poster 10">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster10.jpg', 'Glenn Juan Aldaro')">Poster 10</h5>
+                            <p>Hasil Karya dari : Glenn Juan Aldaro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster11.jpg" class="card-img-top img-fluid" alt="Poster 11">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster11.jpg', 'Hilal Suthanul Adzam')">Poster 11</h5>
+                            <p>Hasil Karya dari : Hilal Suthanul Adzam</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster12.jpg" class="card-img-top img-fluid" alt="Poster 12">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster12.jpg', 'Mohamad Baihaqi Ibrani')">Poster 12</h5>
+                            <p>Hasil Karya dari : Mohamad Baihaqi Ibrani</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster13.jpg" class="card-img-top img-fluid" alt="Poster 13">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster13.jpg', 'Mozzel Boru Mangunsong')">Poster 13</h5>
+                            <p>Hasil Karya dari : Mozzel Boru Mangunsong</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster14.jpg" class="card-img-top img-fluid" alt="Poster 14">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster14.jpg', 'Muhammad Abizar Reivanda')">Poster 14</h5>
+                            <p>Hasil Karya dari : Muhammad Abizar Reivanda</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster15.jpg" class="card-img-top img-fluid" alt="Poster 15">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster15.jpg', 'Muhammad Aldiansyah')">Poster 15</h5>
+                            <p>Hasil Karya dari : Muhammad Aldiansyah</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster16.jpg" class="card-img-top img-fluid" alt="Poster 16">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster16.jpg', 'Muhammad Farhan Maulana Hermansyah')">Poster 16</h5>
+                            <p>Hasil Karya dari : Muhammad Farhan Maulana Hermansyah</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster17.jpg" class="card-img-top img-fluid" alt="Poster 17">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster17.jpg', 'Muhammad Fauzan')">Poster 17</h5>
+                            <p>Hasil Karya dari : Muhammad Fauzan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster18.jpg" class="card-img-top img-fluid" alt="Poster 18">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster18.jpg', 'Muhammad Habibi Lhaksono')">Poster 18</h5>
+                            <p>Hasil Karya dari : Muhammad Habibi Lhaksono</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster19.jpg" class="card-img-top img-fluid" alt="Poster 19">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster19.jpg', 'Muhammad Ikhsan Putra Subandi')">Poster 19</h5>
+                            <p>Hasil Karya dari : Muhammad Ikhsan Putra Subandi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster20.jpg" class="card-img-top img-fluid" alt="Poster 20">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster20.jpg', 'Muhammad Luthfi Fabian')">Poster 20</h5>
+                            <p>Hasil Karya dari : Muhammad Luthfi Fabian</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster21.jpg" class="card-img-top img-fluid" alt="Poster 21">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster21.jpg', 'Muhammad Navies Ramadhan')">Poster 21</h5>
+                            <p>Hasil Karya dari : Muhammad Navies Ramadhan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster22.jpg" class="card-img-top img-fluid" alt="Poster 22">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster22.jpg', 'Muhammad Rifqi Ramadhan')">Poster 22</h5>
+                            <p>Hasil Karya dari : Muhammad Rifqi Ramadhan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster23.png" class="card-img-top img-fluid" alt="Poster 23">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster23.jpg', 'Muhammad Zidan Pratama')">Poster 23</h5>
+                            <p>Hasil Karya dari : Muhammad Zidan Pratama</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster24.jpg" class="card-img-top img-fluid" alt="Poster 24">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster24.jpg', 'Muhammad Bregas Arifin Ilham')">Poster 24</h5>
+                            <p>Hasil Karya dari : Muhammad Bregas Arifin Ilham</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster25.jpg" class="card-img-top img-fluid" alt="Poster 25">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster25.jpg', 'Nabilah Cahya Soepardja')">Poster 25</h5>
+                            <p>Hasil Karya dari : Nabilah Cahya Soepardja</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster26.jpg" class="card-img-top img-fluid" alt="Poster 26">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster26.jpg', 'Nayla Nasywa Ilfiana')">Poster 26</h5>
+                            <p>Hasil Karya dari : Nayla Nasywa Ilfiana</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster27.jpg" class="card-img-top img-fluid" alt="Poster 27">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster27.jpg', 'Nur Nizar Ahnaf')">Poster 27</h5>
+                            <p>Hasil Karya dari : Nur Nizar Ahnaf</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster28.png" class="card-img-top img-fluid" alt="Poster 28">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster28.png', 'Rafif Fathi Mohammad')">Poster 28</h5>
+                            <p>Hasil Karya dari : Rafif Fathi Mohammad</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster29.png" class="card-img-top img-fluid" alt="Poster 29">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster29.png', 'Rafik Anugrah Yana')">Poster 29</h5>
+                            <p>Hasil Karya dari : Rafik Anugrah Yana</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster30.png" class="card-img-top img-fluid" alt="Poster 30">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster30.jpg', 'Reza Surya Hamdani')">Poster 30</h5>
+                            <p>Hasil Karya dari : Reza Surya Hamdani</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster31.jpg" class="card-img-top img-fluid" alt="Poster 31">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster31.jpg', 'Ridho Adi Azna')">Poster 31</h5>
+                            <p>Hasil Karya dari : Ridho Adi Azna</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster32.jpg" class="card-img-top img-fluid" alt="Poster 32">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster32.jpg', 'Rifqi Ahmad Lawindra')">Poster 32</h5>
+                            <p>Hasil Karya dari : Rifqi Ahmad Lawindra</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster33.jpg" class="card-img-top img-fluid" alt="Poster 33">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster33.jpg', 'Tristan Richardo Pieterson Pondaag')">Poster 33</h5>
+                            <p>Hasil Karya dari : Tristan Richardo Pieterson Pondaag</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster34.jpg" class="card-img-top img-fluid" alt="Poster 34">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster34.jpg', 'Wahyu Indra Al Hadi')">Poster 34</h5>
+                            <p>Hasil Karya dari : Wahyu Indra Al Hadi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster35.png" class="card-img-top img-fluid" alt="Poster 35">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster35.jpg', 'Weka Banodava')">Poster 35</h5>
+                            <p>Hasil Karya dari : Weka Banodava</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="/assets/img/posterp5/poster36.jpg" class="card-img-top img-fluid" alt="Poster 36">
+                        <div class="card-body">
+                            <h5 class="card-title" onclick="showImage('assets/img/posterp5/poster36.jpg', 'Widhi Nur Maulida')">Poster 36</h5>
+                            <p>Hasil Karya dari : Widhi Nur Maulida</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ... Repeat for Poster 6 to Poster 36 ... -->
+                <!-- End of loop -->
+            </div>
+        </div>
+    </section>
+
+    <div id="expanded-image">
+        <span id="close-btn" onclick="hideImage()">&times;</span>
+        <img id="expanded-img" alt="Expanded Poster">
+    </div>
+
+    <footer>
+        <div class="container py-4 py-lg-5">
+            <div class="row row-cols-2 row-cols-md-4">
+                <div class="col-12 col-md-3">
+                    <div class="fw-bold d-flex align-items-center mb-2"><span>Actone.PPLG</span></div>
+                    <p class="text-muted">Vocational High School 7 Samarinda</p>
+                </div>
+                <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
+                    <h3 class="fs-6 fw-bold">Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Web design</a></li>
+                        <li><a href="#">Development</a></li>
+                        <li><a href="#">Hosting</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
+                    <h3 class="fs-6 fw-bold">About</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Legacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
+                    <h3 class="fs-6 fw-bold">Careers</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Job openings</a></li>
+                        <li><a href="#">Employee success</a></li>
+                        <li><a href="#">Benefits</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+                <p class="mb-0">Copyright © 2023 Actone.PPLG</p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
+                        </svg></li>
+                    <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-twitter">
+                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 a3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429a3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218a3.203 3.203 0 0 1-.865.115 a3.23 3.23 0 0 1-.614-.057a3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                        </svg></li>
+                    <li class="list-inline-item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7C.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297c.04.852.174 1.433.372 1.942c.205.526.478.972.923 1.417 c.444.445.89.719 1.416.923c.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s.444-.01.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417 c.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941 a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046c.78.035 1.204.166 1.486.275c.373.145.64.319.92.599c.28.28.453.546.598.92 c.11.281.24.705.275 1.485c.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919 c-.28.28-.546.453-.92.598c-.28.11-.704.24-1.485.276c-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047 c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598a2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485 c-.038-.843-.046-1.096-.046-3.233c0-2.136.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486c.145-.373.319-.64.599-.92 c.28-.28.546-.453.92-.598c.282-.11.705-.24 1.485-.276c.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328 a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217a4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334a2.667 2.667 0 0 1 0-5.334z"></path>
+                        </svg></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/startup-modern.js"></script>
+    <script>
+        function showImage(src, user) {
+            // Display the expanded image container
+            console.log('Show Image called');
+            document.getElementById('expanded-image').style.display = 'flex';
+
+            // Set the source and alt text for the expanded image
+            document.getElementById('expanded-img').src = src;
+            document.getElementById('expanded-img').alt = 'Poster by ' + user;
+        }
+
+        function hideImage() {
+            // Hide the expanded image container
+            console.log('Hide Image called');
+            document.getElementById('expanded-image').style.display = 'none';
+        }
+
+        window.addEventListener("load", function() {
+            // After the page has fully loaded, hide the preloader
+            const preloader = document.querySelector(".preloader");
+            preloader.style.display = "none";
+          });
+    </script>
+</body>
+</html>
