@@ -104,47 +104,46 @@
             <script>
                 // Daftar ulang tahun
                 const birthdays = [
-                    { name: "Rama", month: 8, day: 28 }, // Juli dimulai dari indeks 0
-                    { name: "Ghani", month: 2, day: 16 }, // Maret dimulai dari indeks 0
-                    { name: "Dika", month: 3, day: 8 }, // April dimulai dari indeks 0
-                    { name: "Asnia", month: 11, day: 22 }, // Desember dimulai dari indeks 0
-                    { name: "Aurelyo", month: 8, day: 3 }, // September dimulai dari indeks 0
-                    { name: "Chalel", month: 1, day: 19 }, // Februari dimulai dari indeks 0
-                    { name: "Diaz", month: 11, day: 5 }, // Desember dimulai dari indeks 0
-                    { name: "Diva", month: 0, day: 30 }, // Januari dimulai dari indeks 0
-                    { name: "Ghatan", month: 9, day: 22 }, // Oktober dimulai dari indeks 0
-                    { name: "Glenn", month: 7, day: 6 }, // Agustus dimulai dari indeks 0
-                    { name: "Hilal", month: 11, day: 7 }, // Desember dimulai dari indeks 0
-                    { name: "Ibrani", month: 2, day: 21 }, // Maret dimulai dari indeks 0
-                    { name: "Mozzel", month: 5, day: 20 }, // Juni dimulai dari indeks 0
-                    { name: "Abi", month: 7, day: 30 }, // Agustus dimulai dari indeks 0
-                    { name: "Aldi", month: 5, day: 5 }, // Juni dimulai dari indeks 0
-                    { name: "Farhan", month: 10, day: 22 }, // November dimulai dari indeks 0
-                    { name: "Fauzan", month: 0, day: 4 }, // Januari dimulai dari indeks 0
-                    { name: "Habibi", month: 8, day: 11 }, // September dimulai dari indeks 0
-                    { name: "Ikhsan", month: 9, day: 29 }, // Oktober dimulai dari indeks 0
-                    { name: "Luthfi", month: 10, day: 28 }, // November dimulai dari indeks 0
-                    { name: "Rifqi R", month: 9, day: 12 }, // Oktober dimulai dari indeks 0
-                    { name: "Zidan", month: 7, day: 2 }, // Agustus dimulai dari indeks 0
-                    { name: "Bregas", month: 4, day: 16 }, // Mei dimulai dari indeks 0
-                    { name: "Nabila", month: 0, day: 5 }, // Januari dimulai dari indeks 0
-                    { name: "Naswa", month: 11, day: 7 }, // Desember dimulai dari indeks 0
-                    { name: "Nizar", month: 1, day: 1 }, // Februari dimulai dari indeks 0
-                    { name: "Rafif", month: 1, day: 22 }, // Februari dimulai dari indeks 0
-                    { name: "Rafik", month: 7, day: 13 }, // Agustus dimulai dari indeks 0
-                    { name: "Reza", month: 0, day: 24 }, // Januari dimulai dari indeks 0
-                    { name: "Ridho", month: 8, day: 22 }, // September dimulai dari indeks 0
-                    { name: "Rifqi Ahmad", month: 1, day: 6 }, // Februari dimulai dari indeks 0
-                    { name: "Tristan", month: 4, day: 22 }, // Mei dimulai dari indeks 0
-                    { name: "Wahyu", month: 11, day: 7 }, // Desember dimulai dari indeks 0
-                    { name: "Weka Dava", month: 3, day: 26 }, // April dimulai dari indeks 0
-                    { name: "Widhi", month: 2, day: 16 }, // Maret dimulai dari indeks 0
-                ];
+    { name: "Rama", month: 8, day: 28 },
+    { name: "Ghani", month: 3, day: 16 },
+    { name: "Dika", month: 4, day: 8 },
+    { name: "Asnia", month: 12, day: 22 },
+    { name: "Aurelyo", month: 9, day: 3 },
+    { name: "Chalel", month: 2, day: 19 },
+    { name: "Diaz", month: 12, day: 5 },
+    { name: "Diva", month: 1, day: 30 },
+    { name: "Ghatan", month: 10, day: 22 },
+    { name: "Glenn", month: 8, day: 6 },
+    { name: "Hilal", month: 12, day: 7 },
+    { name: "Ibrani", month: 3, day: 21 },
+    { name: "Mozzel", month: 6, day: 20 },
+    { name: "Abi", month: 8, day: 30 },
+    { name: "Aldi", month: 6, day: 5 },
+    { name: "Farhan", month: 11, day: 22 },
+    { name: "Fauzan", month: 1, day: 4 },
+    { name: "Habibi", month: 9, day: 11 },
+    { name: "Ikhsan", month: 10, day: 29 },
+    { name: "Luthfi", month: 11, day: 28 },
+    { name: "Rifqi R", month: 10, day: 12 },
+    { name: "Zidan", month: 8, day: 2 },
+    { name: "Bregas", month: 5, day: 16 },
+    { name: "Nabila", month: 1, day: 5 },
+    { name: "Naswa", month: 12, day: 7 },
+    { name: "Nizar", month: 2, day: 1 },
+    { name: "Rafif", month: 2, day: 22 },
+    { name: "Rafik", month: 8, day: 13 },
+    { name: "Reza", month: 1, day: 24 },
+    { name: "Ridho", month: 9, day: 22 },
+    { name: "Rifqi Ahmad", month: 2, day: 6 },
+    { name: "Tristan", month: 5, day: 22 },
+    { name: "Wahyu", month: 12, day: 7 },
+    { name: "Weka Dava", month: 4, day: 26 },
+    { name: "Widhi", month: 3, day: 16 },
+];
 
-                // Fungsi untuk mencari ulang tahun terdekat
-    function findClosestBirthday() {
+function findClosestBirthday() {
         const currentDate = new Date();
-        let closestBirthdays = [];
+        let closestBirthday = null;
         let closestDifference = Infinity;
 
         for (const birthday of birthdays) {
@@ -154,24 +153,13 @@
 
             if (difference >= 0 && difference < closestDifference) {
                 closestDifference = difference;
-                closestBirthdays = [birthday];
-            } else if (difference === closestDifference) {
-                closestBirthdays.push(birthday);
+                closestBirthday = birthday;
             }
         }
 
-        return closestBirthdays;
+        return closestBirthday;
     }
 
-    // Tampilkan ulang tahun terdekat di HTML
-    const closestBirthdays = findClosestBirthday();
-    if (closestBirthdays.length > 0) {
-        const closestBirthdayElement = document.getElementById("closestBirthday");
-        const formattedNames = closestBirthdays.map(birthday => `${birthday.name}: ${birthday.day} ${getMonthName(birthday.month)}`);
-        closestBirthdayElement.textContent = `Ulang Tahun Terdekat: ${formattedNames.join(', ')}`;
-    }
-
-    // Fungsi untuk mendapatkan nama bulan dari angka bulan
     function getMonthName(month) {
         const monthNames = [
             "Januari", "Februari", "Maret", "April", "Mei", "Juni",
@@ -180,26 +168,21 @@
         return monthNames[month - 1];
     }
 
-    window.addEventListener("load", function () {
-        // After the page has fully loaded, hide the preloader
-        const preloader = document.querySelector(".preloader");
-        preloader.style.display = "none";
-    });
-
-    // Fungsi untuk mengupdate ulang tahun terdekat dan jam
     function updateData() {
         const closestBirthday = findClosestBirthday();
-        if (closestBirthday.length > 0) {
-            const formattedDate = `${closestBirthday[0].day} ${getMonthName(closestBirthday[0].month)}`;
-            document.getElementById("closestBirthday").textContent = `Ulang Tahun Terdekat: ${closestBirthday[0].name}, ${formattedDate}`;
+        if (closestBirthday) {
+            const formattedDate = `${closestBirthday.day} ${getMonthName(closestBirthday.month)}`;
+            document.getElementById("closestBirthday").textContent = `Ulang Tahun Terdekat: ${closestBirthday.name}, ${formattedDate}`;
         }
     }
 
-    // Mengeksekusi updateData() secara berkala setiap 1 detik (1000 milidetik)
-    setInterval(updateData, 1000);
+    window.addEventListener("load", function () {
+        const preloader = document.querySelector(".preloader");
+        preloader.style.display = "none";
+        updateData(); // Call updateData on load
+    });
 
-    // Panggil updateData() untuk pertama kali saat halaman dimuat
-    updateData();
+    setInterval(updateData, 1000);
             </script>
 
         </div>
