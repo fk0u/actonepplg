@@ -164,12 +164,12 @@
 }
 
     // Tampilkan ulang tahun terdekat di HTML
-    const closestBirthdays = findClosestBirthday();
-    if (closestBirthdays.length > 0) {
-        const closestBirthdayElement = document.getElementById("closestBirthday");
-        const formattedNames = closestBirthdays.join(', ');
-        closestBirthdayElement.textContent = `Ulang Tahun Terdekat: ${formattedNames}`;
-    }
+    const closestBirthday = findClosestBirthday();
+if (closestBirthday.length > 0) {
+    const closestBirthdayElement = document.getElementById("closestBirthday");
+    const formattedNames = closestBirthday.join(', ');
+    closestBirthdayElement.textContent = `Ulang Tahun Terdekat: ${formattedNames}`;
+}
 
                 window.addEventListener("load", function () {
                     // After the page has fully loaded, hide the preloader
