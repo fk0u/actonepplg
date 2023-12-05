@@ -34,11 +34,150 @@
       width: 100px; /* Adjust the width as needed */
       height: 100px; /* Adjust the height as needed */
     }
+
+    .zf_lB_Dimmer_870987{ 
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background: rgb(0, 0, 0);
+        opacity: 0.8;
+        z-index: 10000000;
+    }
+    
+    .zf_lB_Container_870987{
+        position: fixed;
+        background-color: white;
+        margin: 0;
+        margin-right: 0px;
+        padding: 0;
+        height: 452px;
+        width:  70%;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        border: 7px solid none;
+        max-height: calc(100% - 60px);
+        z-index: 999999;
+    }
+    
+    p{
+    margin-bottom: 10px;
+    }
+    
+    .zf_lB_Wrapper_870987{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-left: 0;
+        margin-top: -180px;
+        z-index: 10000001;
+    }
+    
+    .zf_main_id_870987{
+        height: calc(100% - 0px);
+        display: flex;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    
+    .zf_lb_closeform_870987 {
+        position: absolute;
+        right: -20px;
+        background: #2f2e2e;
+        padding: 0;
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        top: -15px;
+        cursor: pointer;
+        border: 2px solid #d9d9d9;
+    }
+    .zf_lb_closeform_870987:before, .zf_lb_closeform_870987:after {
+        position: absolute;
+        left: 16px;
+        content: ' ';
+        height: 19px;
+        width: 2px;
+        top: 7px;
+        background-color: #f7f7f7;
+    }
+    
+    .zf_lb_closeform_870987:before {
+      transform: rotate(45deg);
+    }
+    .zf_lb_closeform_870987:after {
+      transform: rotate(-45deg);
+    } 
+    
+    .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    display: block !important;
+    }
+    @-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+    }
+    @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+    } 
+    
+    
+    @media screen and (min-device-width: 10px) and (max-device-width: 380px) {  
+       .zf_lB_Container_870987 {
+      width: 270px !important;
+    } 
+    }
+    
+    @media screen and (min-device-width: 360px) and (max-device-width: 480px) {  
+       .zf_lB_Container_870987 {
+      width: 300px !important;
+    } 
+    }
+    
+    @media screen and (min-device-width: 440px) and (max-device-width: 500px) {  
+       .zf_lB_Container_870987 {
+      width: 380px !important;
+    } 
+    }
+    
+    @media only screen  and (min-width:500px) and (max-width:600px)  {  
+         .zf_lB_Container_870987 {
+        width: 450px;
+     }
+    }
+    
+    @media only screen  and (min-width:601px) and (max-width:700px)  {  
+         .zf_lB_Container_870987 {
+        width: 540px;
+     }
+    }
+    
+    @media only screen  and (min-width:700px) and (max-width:800px)  { 
+    .zf_lB_Container_870987 {
+        width: 650px;
+     }
+    }
+    
+    @media screen and (min-device-width: 801px) and (max-device-width: 1268px) {  
+       .zf_lB_Container_870987 {
+      width: 750px !important;
+    } 
+    }
   </style>  
 <body>
     <div class="preloader">
         <img src="assets/img/loader.gif" alt="Loading...">
       </div>
+      <button id="zf_button_81446" style="display: none;">Form</button>
     <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3 navbar-light" id="mainNav">
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>Actone.PPLG</span></a>
             <div class="collapse navbar-collapse" id="navcol-1" style="margin-right: 0px;padding-right: 130px;">
@@ -57,52 +196,41 @@
                     <h2 class="display-6 fw-bold mb-4">Daily&nbsp;<span class="underline">Presence</span></h2>
                     <p class="text-muted">Don`t Forget to Report your presence.</p>
                     <div class="container" id="ff-compose"></div>
-<script async defer src="https://formfacade.com/include/103977502636048839699/form/1FAIpQLSfDJ0GwGOIRIUcifZQzuNx6mp5bBdAlCvDi6Ci0ZAiNrIcG7A/bootstrap.js?div=ff-compose"></script>
-            </div>
+                    <div id="zf_div_z2OA-u80uLvXCZhA9D4ItPwggEDXkATLGUiVLzwIOIM"></div><script type="text/javascript">(function() {
+                        try{
+                        var f = document.createElement("iframe");
+                        f.src = 'https://forms.zohopublic.com/p23ghani115/form/PresensiOnline/formperma/z2OA-u80uLvXCZhA9D4ItPwggEDXkATLGUiVLzwIOIM?zf_rszfm=1';
+                        f.style.border="none";
+                        f.style.height="442px";
+                        f.style.width="90%";
+                        f.style.transition="all 0.5s ease";
+                        f.setAttribute("aria-label", 'Presensi Online');
+                        
+                        var d = document.getElementById("zf_div_z2OA-u80uLvXCZhA9D4ItPwggEDXkATLGUiVLzwIOIM");
+                        d.appendChild(f);
+                        window.addEventListener('message', function (){
+                        var evntData = event.data;
+                        if( evntData && evntData.constructor == String ){
+                        var zf_ifrm_data = evntData.split("|");
+                        if ( zf_ifrm_data.length == 2 ) {
+                        var zf_perma = zf_ifrm_data[0];
+                        var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
+                        var iframe = document.getElementById("zf_div_z2OA-u80uLvXCZhA9D4ItPwggEDXkATLGUiVLzwIOIM").getElementsByTagName("iframe")[0];
+                        if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
+                        var prevIframeHeight = iframe.style.height;
+                        if ( prevIframeHeight != zf_ifrm_ht_nw ) {
+                        iframe.style.height = zf_ifrm_ht_nw;
+                        }
+                        }
+                        }
+                        }
+                        }, false);
+                        }catch(e){}
+                        })();</script>
+                                </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6">
                     <div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-4 py-xl-5 mb-5">
-        <div class="container">
-            <div class="row mb-2">
-                <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="display-6 fw-bold mb-5"><span class="pb-3 underline">FAQ<br></span></h2>
-                    <p class="text-muted mb-5">Curae hendrerit donec commodo hendrerit egestas tempus, turpis facilisis nostra nunc. Vestibulum dui eget ultrices.</p>
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-8 mx-auto">
-                    <div class="accordion text-muted" role="tablist" id="accordion-1">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="true" aria-controls="accordion-1 .item-1">Aenean arcu euismod aliquam, volutpat consequat?</button></h2>
-                            <div class="accordion-collapse collapse show item-1" role="tabpanel" data-bs-parent="#accordion-1">
-                                <div class="accordion-body">
-                                    <p>Maecenas diam volutpat, erat quis enim cras lobortis vivamus donec tempor. Congue ultrices donec turpis vivamus. Laoreet aenean metus, mi nunc massa feugiat duis. Pharetra erat consequat purus curae quisque, etiam accumsan class.</p>
-                                    <p class="mb-0">Commodo rutrum quisque curabitur habitasse, suspendisse etiam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-2" aria-expanded="false" aria-controls="accordion-1 .item-2">Lorem quam erat placerat mollis, rhoncus senectus?</button></h2>
-                            <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
-                                <div class="accordion-body">
-                                    <p class="mb-0">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="false" aria-controls="accordion-1 .item-3">Iaculis accumsan id, facilisis proin ipsum velit neque?</button></h2>
-                            <div class="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-1">
-                                <div class="accordion-body">
-                                    <p class="mb-0">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
