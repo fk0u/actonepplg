@@ -142,31 +142,33 @@
                 ];
 
                 // Fungsi untuk mencari ulang tahun terdekat
-        function findClosestBirthday() {
-            const currentDate = new Date();
-            let closestBirthday = null;
-            let closestDifference = Infinity;
+    function findClosestBirthday() {
+        const currentDate = new Date();
+        let closestBirthdays = [];
+        let closestDifference = Infinity;
 
-            for (const birthday of birthdays) {
-                const birthdayDate = new Date(currentDate.getFullYear(), birthday.month, birthday.day);
-                const difference = birthdayDate - currentDate;
+        for (const birthday of birthdays) {
+            const birthdayDate = new Date(currentDate.getFullYear(), birthday.month, birthday.day);
+            const difference = birthdayDate - currentDate;
 
-                if (difference >= 0 && difference < closestDifference) {
-                    closestDifference = difference;
-                    closestBirthday = birthday;
-                }
+            if (difference >= 0 && difference < closestDifference) {
+                closestDifference = difference;
+                closestBirthdays = [birthday.name];
+            } else if (difference === closestDifference) {
+                closestBirthdays.push(birthday.name);
             }
-
-            return closestBirthday;
         }
 
-                // Tampilkan ulang tahun terdekat di HTML
-                const closestBirthday = findClosestBirthday();
-                if (closestBirthday) {
-                    const closestBirthdayElement = document.getElementById("closestBirthday");
-                    const formattedDate = new Date(new Date().getFullYear(), closestBirthday.month, closestBirthday.day).toLocaleDateString(undefined, { month: 'long', day: 'numeric' });
-                    closestBirthdayElement.textContent = `${closestBirthday.name}: ${formattedDate}`;
-                }
+        return closestBirthdays;
+    }
+
+    // Tampilkan ulang tahun terdekat di HTML
+    const closestBirthdays = findClosestBirthday();
+    if (closestBirthdays.length > 0) {
+        const closestBirthdayElement = document.getElementById("closestBirthday");
+        const formattedNames = closestBirthdays.join(', ');
+        closestBirthdayElement.textContent = `Ulang Tahun Terdekat: ${formattedNames}`;
+    }
 
                 window.addEventListener("load", function () {
                     // After the page has fully loaded, hide the preloader
