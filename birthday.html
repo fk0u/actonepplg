@@ -143,24 +143,25 @@
 
                 // Fungsi untuk mencari ulang tahun terdekat
     function findClosestBirthday() {
-        const currentDate = new Date();
-        let closestBirthdays = [];
-        let closestDifference = Infinity;
+    const currentDate = new Date();
+    let closestBirthdays = [];
+    let closestDifference = Infinity;
 
-        for (const birthday of birthdays) {
-            const birthdayDate = new Date(currentDate.getFullYear(), birthday.month, birthday.day);
-            const difference = birthdayDate - currentDate;
+    for (const birthday of birthdays) {
+        const birthdayDate = new Date(currentDate.getFullYear(), birthday.month, birthday.day);
+        birthdayDate.setHours(0, 0, 0, 0); // Set hours, minutes, seconds, and milliseconds to 0 for accurate comparison
+        const difference = birthdayDate - currentDate;
 
-            if (difference >= 0 && difference < closestDifference) {
-                closestDifference = difference;
-                closestBirthdays = [birthday.name];
-            } else if (difference === closestDifference) {
-                closestBirthdays.push(birthday.name);
-            }
+        if (difference >= 0 && difference < closestDifference) {
+            closestDifference = difference;
+            closestBirthdays = [birthday.name];
+        } else if (difference === closestDifference) {
+            closestBirthdays.push(birthday.name);
         }
-
-        return closestBirthdays;
     }
+
+    return closestBirthdays;
+}
 
     // Tampilkan ulang tahun terdekat di HTML
     const closestBirthdays = findClosestBirthday();
