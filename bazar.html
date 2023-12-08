@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Keuangan Bazar</title>
+    <link rel="icon" href="assets/img/icon.png" type="image/png">
+    <style>
+        /* Container styling */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+    /* Style untuk body */
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: 'Roboto Condensed', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+    }
+
+/* Style untuk navbar */
+.navbar {
+    margin-bottom: 20px; /* Adjust this value as needed */
+}
+
+.navbar-brand {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
+    color: #343a40;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Style untuk header */
+h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.underline {
+    border-bottom: 2px solid #007bff;
+}
+
+/* Style untuk form dan button */
+label, input, select, button {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input, select {
+    width: 80%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style untuk tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Style untuk footer */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 30px 0;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.text-muted {
+    color: #b0b0b0;
+}
+
+/* Style untuk row d-flex justify-content-center */
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Style untuk col-md-6 */
+.col-md-6 {
+    width: 50%;
+}
+
+/* Style untuk list-inline di footer */
+.list-inline {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.list-inline-item {
+    margin-right: 15px;
+}
+
+/* Style untuk social media icons */
+.list-inline-item svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+    transition: fill 0.3s ease;
+}
+
+.list-inline-item svg:hover {
+    fill: #007bff;
+}
+
+/* Media Query untuk perangkat dengan lebar maksimum 768px */
+@media (max-width: 768px) {
+    .col-md-6 {
+        width: 100%;
+    }
+}
+
+/* Media Query untuk perangkat dengan lebar maksimum 576px */
+@media (max-width: 576px) {
+    .navbar-nav {
+        margin-left: 0;
+    }
+    
+    .nav-item {
+        margin-right: 10px;
+    }
+    
+    .navbar-toggler {
+        margin-right: 10px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+    
+    label, input, select, button {
+        margin-bottom: 5px;
+    }
+    
+    input, select {
+        padding: 6px;
+    }
+    
+    button {
+        padding: 8px 12px;
+    }
+    
+    th, td {
+        padding: 8px;
+    }
+
+    .list-inline-item svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+    </style>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+</head>
+<body>
+
+   <div class="container">
+
+        <h2>Manajemen Keuangan Bazar</h2>
+
+        <label for="jenisTransaksi">Jenis Transaksi:</label>
+        <select id="jenisTransaksi">
+            <option value="masuk">Masuk</option>
+            <option value="keluar">Keluar</option>
+        </select>
+
+        <label for="jumlahTransaksi">Jumlah Transaksi:</label>
+        <input type="number" id="jumlahTransaksi" placeholder="Masukkan jumlah transaksi" />
+
+        <label for="tanggalTransaksi">Tanggal Transaksi:</label>
+        <input type="date" id="tanggalTransaksi" />
+
+        <button onclick="tambahTransaksi()">Tambah Transaksi</button>
+        <button onclick="eksporKeExcel()">Export to Excel</button>
+
+        <h3>Data Keuangan</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Jenis Transaksi</th>
+                    <th>Jumlah Transaksi</th>
+                    <th>Tanggal Transaksi</th>
+                    <th>Jumlah Uang Saat Ini</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="dataKeuangan">
+                <!-- Data will be displayed here -->
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+        var totalBalance = 0;
+        var financialData = [];
+        var jsonStorageKey = 'financialData';
+    
+        function tambahTransaksi() {
+            var jenisTransaksi = document.getElementById("jenisTransaksi").value;
+            var jumlahTransaksi = parseFloat(document.getElementById("jumlahTransaksi").value) || 0;
+            var tanggalTransaksi = document.getElementById("tanggalTransaksi").value;
+    
+            // Update total balance
+            if (jenisTransaksi === "masuk") {
+                totalBalance += jumlahTransaksi;
+            } else if (jenisTransaksi === "keluar") {
+                // Validate if there is enough balance for a "keluar" transaction
+                if (jumlahTransaksi > totalBalance) {
+                    alert("Jumlah transaksi keluar melebihi jumlah uang saat ini.");
+                    return;
+                }
+                totalBalance -= jumlahTransaksi;
+            }
+    
+            // Add the new transaction to financialData
+            financialData.push({
+                jenisTransaksi: jenisTransaksi,
+                jumlahTransaksi: jumlahTransaksi,
+                tanggalTransaksi: tanggalTransaksi,
+                jumlahUangSaatIni: totalBalance.toFixed(2)
+            });
+    
+            // Update the table and save data
+            updateTable();
+            saveData();
+    
+            // Reset input
+            document.getElementById("jenisTransaksi").value = "masuk";
+            document.getElementById("jumlahTransaksi").value = "";
+            document.getElementById("tanggalTransaksi").value = "";
+        }
+
+        function updateTable() {
+            var dataKeuangan = document.getElementById("dataKeuangan");
+            dataKeuangan.innerHTML = ""; // Clear existing data
+
+            // Loop through financialData and update the table
+            financialData.forEach(function (entry) {
+                var newRow = document.createElement("tr");
+                newRow.innerHTML = `
+                    <td>${entry.jenisTransaksi}</td>
+                    <td>${entry.jumlahTransaksi}</td>
+                    <td>${entry.tanggalTransaksi}</td>
+                    <td>${entry.jumlahUangSaatIni}</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                `;
+                dataKeuangan.appendChild(newRow);
+            });
+        }
+
+        function deleteRow(button) {
+            var confirmation = confirm("Apakah Anda yakin ingin menghapus transaksi ini?");
+            if (confirmation) {
+                var row = button.parentNode.parentNode;
+                var rowIndex = row.rowIndex;
+
+                // Update total balance based on the deleted transaction
+                var deletedAmount = parseFloat(row.cells[1].innerText) || 0;
+                totalBalance -= deletedAmount;
+
+                // Delete the row from the table
+                row.parentNode.removeChild(row);
+
+                // Update total balance in financialData and save data
+                financialData.splice(rowIndex - 1, 1);
+                saveData();
+            }
+        }
+
+        function eksporKeExcel() {
+            var ws = XLSX.utils.json_to_sheet(financialData);
+            var wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Data Keuangan');
+
+            XLSX.writeFile(wb, 'Data_Keuangan.xlsx');
+        }
+
+        function loadData() {
+            // Mengambil data dari local storage
+            var storedData = localStorage.getItem(jsonStorageKey);
+            if (storedData) {
+                financialData = JSON.parse(storedData);
+                updateTable();
+            }
+        }
+
+        function saveData() {
+            // Menyimpan data ke local storage
+            localStorage.setItem(jsonStorageKey, JSON.stringify(financialData));
+        }
+
+        // Panggil loadData() saat halaman dimuat
+        window.onload = function () {
+            loadData();
+        };
+    </script>
+
+</body>
+</html>
