@@ -72,25 +72,49 @@
 
         <div id="qrcode-container"></div>
         <button class="btn btn-primary" onclick="generateQRCode()">Generate QR Code</button>
+        <button class="btn btn-success" onclick="downloadQRCode()">Download QR Code</button>
             <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/dist/qrcode.min.js"></script>
             <script src="script.js"></script>
             <script>
-                function generateQRCode() {
-                    // Mengambil nilai URL dari input
-                    var urlInput = document.getElementById("urlInput");
-                    var url = urlInput.value;
+            var qrcode;
 
-                    // Membuat objek QRCode
-                    var qrcode = new QRCode(document.getElementById("qrcode-container"), {
-                        text: url,
-                        width: 128,
-                        height: 128
-                    });
+            function generateQRCode() {
+                // Mengambil nilai URL dari input
+                var urlInput = document.getElementById("urlInput");
+                var url = urlInput.value;
 
-                    // Menyusun QRCode dengan URL yang diberikan
-                    qrcode.makeCode(url);
+                // Membersihkan konten pada container sebelum membuat QR Code baru
+                document.getElementById("qrcode-container").innerHTML = "";
+
+                // Membuat objek QRCode
+                qrcode = new QRCode(document.getElementById("qrcode-container"), url);
+            }
+
+            function downloadQRCode() {
+                if (qrcode) {
+                    // Mengambil data URL dari QR Code
+                    var dataUrl = document.getElementById("qrcode-container").querySelector('img').src;
+
+                    // Membuat elemen <a> untuk mengunduh
+                    var downloadLink = document.createElement('a');
+                    downloadLink.href = dataUrl;
+                    downloadLink.download = 'qrcode.png';
+
+                    // Menambahkan elemen ke dalam dokumen dan mengkliknya untuk mengaktifkan unduhan
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
                 }
-            </script>
+            }
+
+                window.addEventListener("load", function () {
+        const preloader = document.querySelector(".preloader");
+        preloader.style.display = "none";
+        updateData(); // Call updateData on load
+    });
+
+    setInterval(updateData, 1000);
+        </script>
         </div>
     </section>
     <footer>
@@ -154,15 +178,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/startup-modern.js"></script>
   <script src="qrcode.min.js"></script>
-    <script>
-        window.addEventListener("load", function () {
-        const preloader = document.querySelector(".preloader");
-        preloader.style.display = "none";
-        updateData(); // Call updateData on load
-    });
-
-    setInterval(updateData, 1000);
-    </script>
 </body>
 
 </html>
