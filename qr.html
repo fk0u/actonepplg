@@ -65,7 +65,8 @@
                     </h2>
                 </div>
             </div>
-           <div class="mb-3">
+           <!-- Input URL untuk QR Code -->
+        <div class="mb-3">
             <label for="urlInput" class="form-label">URL:</label>
             <input type="text" class="form-control" id="urlInput" placeholder="Masukkan URL">
         </div>
@@ -73,48 +74,50 @@
         <div id="qrcode-container"></div>
         <button class="btn btn-primary" onclick="generateQRCode()">Generate QR Code</button>
         <button class="btn btn-success" onclick="downloadQRCode()">Download QR Code</button>
-            <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/dist/qrcode.min.js"></script>
-            <script src="script.js"></script>
-            <script>
-            var qrcode;
+    </div>
+</section>
 
-            function generateQRCode() {
-                // Mengambil nilai URL dari input
-                var urlInput = document.getElementById("urlInput");
-                var url = urlInput.value;
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<script>
+    var qrcode;
 
-                // Membersihkan konten pada container sebelum membuat QR Code baru
-                document.getElementById("qrcode-container").innerHTML = "";
+    function generateQRCode() {
+        // Mengambil nilai URL dari input
+        var urlInput = document.getElementById("urlInput");
+        var url = urlInput.value;
 
-                // Membuat objek QRCode
-                qrcode = new QRCode(document.getElementById("qrcode-container"), url);
-            }
+        // Membersihkan konten pada container sebelum membuat QR Code baru
+        document.getElementById("qrcode-container").innerHTML = "";
 
-            function downloadQRCode() {
-                if (qrcode) {
-                    // Mengambil data URL dari QR Code
-                    var dataUrl = document.getElementById("qrcode-container").querySelector('img').src;
+        // Membuat objek QRCode
+        qrcode = new QRCode(document.getElementById("qrcode-container"), url);
+    }
 
-                    // Membuat elemen <a> untuk mengunduh
-                    var downloadLink = document.createElement('a');
-                    downloadLink.href = dataUrl;
-                    downloadLink.download = 'qrcode.png';
+    function downloadQRCode() {
+        if (qrcode) {
+            // Mengambil data URL dari QR Code
+            var dataUrl = document.getElementById("qrcode-container").querySelector('img').src;
 
-                    // Menambahkan elemen ke dalam dokumen dan mengkliknya untuk mengaktifkan unduhan
-                    document.body.appendChild(downloadLink);
-                    downloadLink.click();
-                    document.body.removeChild(downloadLink);
-                }
-            }
+            // Membuat elemen <a> untuk mengunduh
+            var downloadLink = document.createElement('a');
+            downloadLink.href = dataUrl;
+            downloadLink.download = 'qrcode.png';
 
-                window.addEventListener("load", function () {
+            // Menambahkan elemen ke dalam dokumen dan mengkliknya untuk mengaktifkan unduhan
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
+    }
+
+    window.addEventListener("load", function () {
         const preloader = document.querySelector(".preloader");
         preloader.style.display = "none";
         updateData(); // Call updateData on load
     });
 
     setInterval(updateData, 1000);
-        </script>
+</script>
         </div>
     </section>
     <footer>
