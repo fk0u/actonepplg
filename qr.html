@@ -65,7 +65,13 @@
                     </h2>
                 </div>
             </div>
-            <div id="qrcode-container"></div>
+           <div class="mb-3">
+            <label for="urlInput" class="form-label">URL:</label>
+            <input type="text" class="form-control" id="urlInput" placeholder="Masukkan URL">
+        </div>
+
+        <div id="qrcode-container"></div>
+        <button class="btn btn-primary" onclick="generateQRCode()">Generate QR Code</button>
             <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/dist/qrcode.min.js"></script>
             <script src="script.js"></script>
             <script>
