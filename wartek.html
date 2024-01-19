@@ -176,6 +176,20 @@ Atas perhatian dan kerjasamanya diucapkan terima kasih.</p>
             </div>
         </div>
     </footer>
+<script>
+function openModalAfterDelay() {
+                        setTimeout(function () {
+                            var myModal = new bootstrap.Modal(document.getElementById('videoModal'), {
+                                backdrop: 'static', // Menghilangkan kemampuan menutup modal dengan mengklik luar
+                                keyboard: false // Menghilangkan kemampuan menutup modal dengan menekan tombol keyboard Esc
+                            });
+                            myModal.show();
+                        }, 7000); // 7000 milidetik = 7 detik
+                    }
+            
+                    // Panggil fungsi ini setelah dokumen dimuat
+                    window.addEventListener('load', openModalAfterDelay);
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/startup-modern.js"></script>
